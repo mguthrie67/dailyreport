@@ -217,9 +217,11 @@ class crmHelper():
          id=x['TASK_ID']
          title=x['Title']
          d=x['DUE_DATE']
-         t=datetime.datetime.strptime(d, "%Y-%m-%d %H:%M:%S")
-
-         due=t.strftime('%d %b %Y')
+         if d:
+            t=datetime.datetime.strptime(d, "%Y-%m-%d %H:%M:%S")
+            due=t.strftime('%d %b %Y')
+         else:
+            due="Not Set"
 
 # check if overdue
          now=datetime.datetime.now()
